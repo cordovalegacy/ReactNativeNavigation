@@ -7,6 +7,10 @@ export const home = StyleSheet.create({
     screen: {
         flex: 1
     },
+    pokeListContainer: {
+        width: "90%",
+        paddingVertical: 10
+    },
     pokeList: {
         alignItems: 'center',
         justifyContent: 'space-evenly',
@@ -14,17 +18,25 @@ export const home = StyleSheet.create({
         flex: 1/2,
         width: 165,
         height: 225,
-        marginBottom: 16
+        marginBottom: 40,
+        marginTop: 10
     },
     cardDetails: {
-        flex: 0.5
+        flex: 0.5,
+        width: "100%",
+        elevation: 4,
+        shadowColor: "black"
+    },
+    pressEffect: {
+        opacity: .95
     },
     pokemonName: {
-        color: "black",
+        color: "white",
         fontSize: 25,
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        backgroundColor: "white",
-        fontWeight: 700
+        marginTop: -40,
+        paddingHorizontal: 5,
+        backgroundColor: "red",
+        fontWeight: "900",
+        textAlign: "center"
     }
 })
