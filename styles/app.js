@@ -4,7 +4,8 @@ import { StyleSheet } from 'react-native'
 
 export const app = StyleSheet.create({
     screen: {
-        flex: 1
+        flex: 1,
+        backgroundColor: "black"
     },
     container: {
         flex: 1,
