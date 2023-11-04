@@ -9,7 +9,9 @@ export default function PokemonCard({ item, navigation }) {
     return (
         <View style={home.pokeList}>
             <Pressable
-                onPress={() => navigation.navigate("One-Pokemon")}
+                onPress={() => navigation.navigate("One-Pokemon", {
+                    selectedPokemon: item.name
+                })}
                 style={({ pressed }) => [home.screen, pressed ? home.pressEffect : null]}>
                 <ImageBackground
                     source={require('../assets/base-card.jpg')}
