@@ -54,11 +54,11 @@ export default function OnePokemon({ route }) {
             <ScrollView style={[details.screen, details.detailsView]}>
                 <View>
                     <Text style={details.movesDetails}>Recorded Types:</Text>
-                    <View>{selectedPokemon.types.map((type, idx) => <Text style={details.movesDetails}>{idx+1}: {type}</Text>)}</View>
+                    <View>{selectedPokemon.types.map((type, idx) => <Text style={details.movesDetails} key={idx+1}>{idx+1}: {type}</Text>)}</View>
                 </View>
                 <View style={details.moves}>
                     <Text style={details.movesDetails}>Recorded Moves:</Text>
-                    <View>{selectedPokemon.moves.map((move, idx) => <Text style={details.movesDetails}>{idx+1}: {move}</Text>)}</View>
+                    <View>{selectedPokemon.moves.map((move, idx) => <Text style={details.movesDetails} key={idx+1}>{idx+1}: {move}</Text>)}</View>
                 </View>
                 <View>
                     <Text style={{fontStyle: "italic"}}>End of List</Text>

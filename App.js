@@ -1,5 +1,6 @@
 
 // !Packages
+import { Image } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -17,27 +18,38 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style='dark' />
+      <StatusBar style='light' />
       <PokeProvider>
         <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name='All-Pokemon'>
+          <Stack.Navigator screenOptions={{
+            headerStyle: { backgroundColor: "#01579b" },
+            headerTintColor: "white"
+          }}>
+            <Stack.Screen name='All-Pokemon' options={{ title: "All Pokemon" }} >
               {(props) => (
                 <AppWrapper>
                   <AllPokemon {...props} />
                 </AppWrapper>
               )}
             </Stack.Screen>
-            <Stack.Screen name="One-Pokemon">
+            <Stack.Screen name="One-Pokemon" options={({ route, navigation }) => {
+              const selectedPokemon = route.params.selectedPokemon
+              return {
+                title: selectedPokemon.charAt(0).toUpperCase() + selectedPokemon.slice(1),
+                headerRight: () => {
+                  return <Image source={require("./assets/star.png")}/>
+                } 
+              }
+            }} >
               {(props) => (
                 <AppWrapper>
                   <OnePokemon {...props} />
                 </AppWrapper>
               )}
             </Stack.Screen>
-          </Stack.Navigator>
-        </NavigationContainer>
-      </PokeProvider>
+          </Stack.Navigator >
+        </NavigationContainer >
+      </PokeProvider >
     </>
   )
 }
